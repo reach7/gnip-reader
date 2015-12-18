@@ -151,7 +151,6 @@ function GnipReader(usernameOrAuthKey, password, accountName, stream, requestPag
 
     if (maxRecords !== null) {
       expectedPageCount = Math.ceil(maxRecords / pageUtils.getPageSize(options));
-      console.log('Expecting ~' + expectedPageCount + ' pages.');
     }
 
     // Fire off the first page request...
