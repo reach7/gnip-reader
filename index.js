@@ -83,11 +83,12 @@ function GnipReader(usernameOrAuthKey, password, accountName, stream, requestPag
 
     // Prepare them for sending to Gnip
     var requestOptions = buildOptions({
-      form: JSON.stringify(gnipParameters)
+      method: 'POST',
+      body: gnipParameters,
     }, getEstimate);
 
     // And send them
-    request.post(requestOptions, function(err, response, body) {
+    request(requestOptions, function(err, response, body) {
       if (!err && response.statusCode == 200) {
         // Store the next key so the user can get more records
         self.nextKey = body.hasOwnProperty('next')?body.next:null;
